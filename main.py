@@ -62,7 +62,7 @@ class Sort:
         """
         files = []
         for item in listdir(path=self.directory):
-            if isfile(f"{self.directory}{item}"):
+            if isfile(f"{self.directory}{item}") and 'main.py' != item and "data.json" != item:
                 if verbose:
                     print(item)
                 if path:
@@ -98,7 +98,7 @@ class Sort:
                 print(f"\nRound {rnd}: Starting sort...")
                 for file in self.listfiles(path=False):
                     for category in categories:
-                        if extension(file) in extensions(categ_name=f'{category}'):
+                        if extension(file) in extensions(categ_name=f'{category}') and 'main.py' != file and "data.json" != file:
                             source = f"{self.directory}{file}"
                             destination = f'{self.directory}{category}{self.directory[-1]}{file}'
                             rename(
@@ -162,5 +162,4 @@ elif arg.sort_files:
     sorting.sortfiles(
         configfile=config
     )
-
-
+    sorting.make_log()

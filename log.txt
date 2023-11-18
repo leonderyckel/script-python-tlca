@@ -1,0 +1,11 @@
+
+Folder target: ./
+Log created the 2023-11-18 at 15:19
+
+Category's folder created:
+--------------------------
+01) images has been created !02) video has been created !03) documents has been created !04) programs has been created !
+
+Sorted files:
+-------------
+01) image copie 2.jar has been moved inside the programs folder...02) image copie 2.pdf has been moved inside the documents folder...03) image copie.txt has been moved inside the documents folder...04) image.jpg has been moved inside the images folder...
