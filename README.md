@@ -1,5 +1,5 @@
 
-## Script Python tri de Fichier avec log
+## Script Python tri de Fichier
 
 Voici mon script python qui permet de trier les fichier en fonction des extensions de fichier et de créer un log qui conserve un historique des tris 
 
