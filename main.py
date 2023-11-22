@@ -64,7 +64,10 @@ class Sort:
         for item in listdir(path=self.directory):
             if isfile(f"{self.directory}{item}") and 'main.py' != item and "data.json" != item:
                 if verbose:
-                    print(item)
+                    if path:
+                        print(f"{self.directory}{item}")
+                    else:
+                        print(item)
                 if path:
                     files.append(f"{self.directory}{item}")
                 else:
@@ -98,7 +101,8 @@ class Sort:
                 print(f"\nRound {rnd}: Starting sort...")
                 for file in self.listfiles(path=False):
                     for category in categories:
-                        if extension(file) in extensions(categ_name=f'{category}') and 'main.py' != file and "data.json" != file:
+                        if extension(file) in extensions(
+                                categ_name=f'{category}') and 'main.py' != file and "data.json" != file:
                             source = f"{self.directory}{file}"
                             destination = f'{self.directory}{category}{self.directory[-1]}{file}'
                             rename(
@@ -146,6 +150,7 @@ arg = ArgumentParser(description=f"{config['title']} | Version: {config['version
 sm = arg.add_argument_group('Scan Methods')
 mo = arg.add_argument_group('Main options')
 mo.add_argument('--dir', '-d', help='Specify a PATH', required=True)
+mo.add_argument('--relative-path', '-rp', help='relative PATH', action='store_true')
 sm.add_argument('--list-files', '-lf', help="List files of the specified path", action='store_true')
 sm.add_argument('--sort-files', '-sf', help="Sort files from categories (see data.json)", action='store_true')
 arg = arg.parse_args()
@@ -157,7 +162,7 @@ if arg.dir[-1] not in ['\\' or '/']:
 
 sorting = Sort(directory=arg.dir)
 if arg.list_files:
-    sorting.listfiles(verbose=True)
+    sorting.listfiles(verbose=True, path=arg.relative_path)
 elif arg.sort_files:
     sorting.sortfiles(
         configfile=config
