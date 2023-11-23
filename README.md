@@ -21,5 +21,5 @@ Main options:
 ```
 ## **exemple d'utilisation**
  python3 main.py -d . -sf --> tri les fichiers du directory actuel <br>
- python3 main.py -d . -lf --> affichage des fichiers du directory actuel
+ python3 main.py -d . -lf --> affichage des fichiers du directory actuel <br>
  python3 main.py -d "chemin relatif" -lf -rp --> affiche les fichier du directory specifié ainsi que le chemin relatif
